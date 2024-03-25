@@ -94,11 +94,11 @@ public class Main {
             try {
                 value1 = Integer.valueOf(signs[0]);
                 isFirstNumberTranslated = true;
-                if (value1 > 10 || value1 < 1)
-                throw new Exception();
             } catch (Exception e) {
 
             }
+            if (value1 > 10 || value1 < 1)
+                throw new Exception();
         }
 
         switch (signs[2]) {
@@ -162,11 +162,11 @@ public class Main {
             try {
                 value2 = Integer.valueOf(signs[2]);
                 isSecondNumberTranslated = true;
-                if (value2 > 10 || value2 < 1)
-                throw new Exception();
             } catch (Exception e) {
 
             }
+            if (value2 > 10 || value2 < 1)
+                throw new Exception();
         }
 
         switch (signs[1]) {
@@ -196,6 +196,10 @@ public class Main {
         }
         if (!isFirstNumberTranslated || !isSecondNumberTranslated || !isSignTranslated)
         throw new Exception();
+
+        if (!isFirstNumberArabic && !isSecondNumberArabic && sum <= 0) {
+            throw new Exception();
+        }
 
         if ((isFirstNumberArabic && !isSecondNumberArabic) || (!isFirstNumberArabic && isSecondNumberArabic))
             throw new Exception();
